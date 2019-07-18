@@ -1,0 +1,32 @@
+" vimrc - irwinfv / prereq: install vundle
+set number
+set nowrap
+
+" Setup Vundle
+" mkdir -p ~/.vim/bundle && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim && set
+set nocompatible	                "required
+filetype off		                "required
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'	        "required for vundle
+Plugin 'tpope/vim-fugitive'	        "git plugin
+Plugin 'kien/ctrlp.vim'		        "ctrl+p
+Plugin 'bling/vim-airline'	        "statusbar
+Plugin 'elzr/vim-json'		        "json syntax / colors
+Plugin 'plasticboy/vim-markdown'	"markdown highlighting
+Plugin 'chriskempson/vim-tomorrow-theme' "colors theme
+call vundle#end()		        "required
+filetype plugin indent on	        "required
+
+" set nofolding for markdown reader
+let g:vim_markdown_folding_disabled=1
+
+" Set gvim options
+if has('gui_gtk2')
+"  set guifont=M+\ 2m\ 12
+  set guioptions=ae
+  colorscheme Tomorrow-Night-Eighties
+endif
+
+set laststatus=2 " vim-airline always show status / glyph support
+"let g:airline#extensions#tabline#enabled = 1 
