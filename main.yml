@@ -6,6 +6,8 @@
             copy: src=tmux.conf dest=~/.tmux.conf 
           - name: set -o vi > bashrc
             lineinfile: path=~/.bashrc line='set -o vi'
+          - name: set EDITOR=vim
+            lineinfile: path=~/.bashrc line='export EDITOR=vim' regex='^export EDITOR=.*'
           - name: install vim
             block:
                 - copy: src=vimrc dest=~/.vimrc
